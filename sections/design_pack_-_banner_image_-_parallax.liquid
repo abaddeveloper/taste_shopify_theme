@@ -12,7 +12,7 @@
       <div class="dsgn-pck__no-app-warning-background">
       </div>
       <div class="dsgn-pck__no-app-warning-text dsgn-pck__rte">
-        <p><strong>WARNING!</strong> This section or template will not display properly without the <a href="https://apps.shopify.com/design-packs" target="_blank" rel="nofollow">Design Packs</a> app installed. Please email <a href="mailto:info@design-packs.com" target="_blank">info@design-packs.com</a> with any questions.</p>
+        <p><strong>WARNING!</strong> This premium section will not display properly without an active subscription for <a href="https://apps.shopify.com/design-packs" target="_blank" rel="nofollow">Design Packs</a>. If you need any support please email <a href="mailto:info@design-packs.com" target="_blank">info@design-packs.com</a> with your questions.</p>
       </div>
     </div>
   {%- endif -%}
@@ -605,12 +605,12 @@
       "content": "🚨 Advanced"
     },
     {
-      "type": "textarea",
+      "type": "html",
       "id": "custom_css",
       "label": "CSS"
     },
     {
-      "type": "textarea",
+      "type": "html",
       "id": "mobile_custom_css",
       "label": "Mobile CSS",
       "info": "Applied on screens less than 480px."
@@ -636,6 +636,9 @@
   ],
   "blocks": [
     {
+      "type": "@app"
+    },
+    {
       "type": "small_text",
       "name": "Small text",
       "settings": [
@@ -652,7 +655,7 @@
       "name": "Heading",
       "settings": [
         {
-          "type": "textarea",
+          "type": "text",
           "id": "title",
           "label": "Heading",
           "default": "Parallaxify your store."

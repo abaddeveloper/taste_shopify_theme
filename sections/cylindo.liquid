@@ -1,0 +1,249 @@
+<link rel="stylesheet" type="text/css" href="https://viewer.cylindo.com/v4/viewer.min.css">
+
+<style>
+  /*CYLINDO*/
+
+h1 {
+  text-align: center;
+}
+
+.tt_cylindo_area {
+	position: relative;
+}
+
+.cylindo_grid {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-gap: 30px;
+  margin-right: 80px;
+}
+
+.cylindo_options {
+  {% comment %} align-self: center; {% endcomment %}
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+
+.panel_size_bar {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  color:  black;
+} 
+
+.panel_size {
+  cursor: pointer;
+}
+
+.panel_size:hover {
+  font-weight: bold;
+}
+
+.panel_size.selected{
+  font-weight: bold;
+}
+
+
+
+ /*END CYLINDO*/
+
+</style>
+
+<section>
+	<h1>{{ section.settings.heading }}</h1>
+
+	<div class="tt_cylindo_area outdoor">
+
+    <div class="cylindo_grid">
+      <!-- 360 HD Viewer -->
+      <div id="cylindo_section"></div>
+
+      <div class="cylindo_options">
+        {%- capture cylindo_types -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == "option" -%}
+              {{ block.settings.name | strip }}
+              {%- unless forloop.last -%}::{%- endunless -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+
+        {% assign cylindo_types_array = cylindo_types | split: "::" | uniq %}
+    
+        {%- for cylindo_type in cylindo_types_array -%}
+          {%- assign new_cylindo_type = cylindo_type | strip -%}
+          <div class="clyindo_options_section">
+            <h2>{{ new_cylindo_type }}</h2>
+            <ul class="panel_size_bar">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'option' and block.settings.name == new_cylindo_type -%}
+                  <li data-type="{{ new_cylindo_type }}" data-option="{{ block.settings.value }}" class="panel_size panel_get {% if forloop.first %} selected {% endif %}">{{ block.settings.value }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+	
+	<!-- insert viewer.min.js -->
+   <script src="https://viewer.cylindo.com/v4/viewer.min.js"></script>
+
+  <script>
+
+    var viewerInstance = null;
+
+    var options = {};
+
+    {%- for cylindo_type in cylindo_types_array -%}
+      {%- assign new_cylindo_type = cylindo_type | strip -%}
+        options["{{ new_cylindo_type }}"] = [];
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'option' and block.settings.name == new_cylindo_type -%}
+         options["{{ new_cylindo_type }}"].push("{{ block.settings.value }}") ;
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%} 
+
+    console.log('options', options)
+
+     var selected_options = {};
+
+    {%- for cylindo_type in cylindo_types_array -%}
+      {%- assign new_cylindo_type = cylindo_type | strip -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'option' and block.settings.name == new_cylindo_type -%}
+          selected_options["{{ new_cylindo_type }}"] = "{{ block.settings.value }}";
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%} 
+
+    console.log('selected options', selected_options)
+
+
+    var opts = {  
+      'accountID': {{ section.settings.account_id }},
+      'SKU': "{{ section.settings.sku}}",
+      'features': "{{ section.settings.initial_features }}",
+      'country': "{{ section.settings.country }}",
+      'viewerType': "{{ section.settings.viewer_type }}",  
+      'thumbs': {{ section.settings.show_thumbs }},  
+      'containerID': '#cylindo_section',
+      'alternateContent': []
+    }
+
+  	//instantiate Viewer
+    // make sure the cylindo framework has been "installed"
+    if (cylindo) {
+      // do not instantiate the viewer until the framework reports ready.
+      cylindo.on('ready', function () {
+        // create the instance
+        viewerInstance = cylindo.viewer.create(opts);
+        if(viewerInstance){
+          // getCurrentImage()
+          
+        }
+      });
+    }
+
+    const flatten_object = (the_object) => {
+      var the_array = []
+      for(x in the_object){
+        the_array.push(x)
+        the_array.push(the_object[x])
+      }
+      return the_array
+    }
+
+
+    let panels = document.querySelectorAll('.panel_get');
+
+    panels.forEach((panel) => {
+      panel.addEventListener('click', (e) => {
+        selected_options[e.target.dataset.type] =  e.target.dataset.option
+        var new_features = flatten_object(selected_options)
+        opts.features = new_features
+        viewerInstance.setFeatures(opts.features)
+      });
+    })
+
+  </script>
+
+{% schema %}
+{
+  "name": "Cylindo 🛋",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Cylindo Set up 👷‍♀️"
+    },
+    {
+      "type": "number",
+      "id": "account_id",
+      "label": "Cylindo Account ID"
+    },
+    {
+      "type": "text",
+      "id": "sku",
+      "label": "SKU"
+    },
+    {
+      "type": "text",
+      "id": "initial_features",
+      "label": "Initial Features"
+    },
+    {
+      "type": "text",
+      "id": "country",
+      "label": "Country",
+      "default": "us"
+    },
+    {
+      "type": "number",
+      "id": "viewer_type",
+      "label": "Viewer Type number"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_thumbs",
+      "label": "Show thumbnail photos",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "option",
+      "name": "Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cylindo 🛋"
+    }
+  ]
+}
+{% endschema %}
