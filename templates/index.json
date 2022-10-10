@@ -44,7 +44,8 @@
             "image": "shopify:\/\/shop_images\/model-with-leather-jacket-over-shoulders.jpg",
             "title": "Heading",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
-            "button_label": "Learn more",
+            "read_more_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
+            "button_label": "",
             "button_link": "",
             "external_link": false
           }
@@ -55,7 +56,8 @@
             "image": "shopify:\/\/shop_images\/woman-poses-in-dark-room.jpg",
             "title": "Heading",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
-            "button_label": "Learn more",
+            "read_more_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
+            "button_label": "",
             "button_link": "",
             "external_link": false
           }
@@ -66,7 +68,8 @@
             "image": "shopify:\/\/shop_images\/fashion-model-in-fur.jpg",
             "title": "Heading",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
-            "button_label": "Learn more",
+            "read_more_text": "",
+            "button_label": "",
             "button_link": "",
             "external_link": false
           }
@@ -85,13 +88,13 @@
         "text_alignment": "center",
         "heading_color": "#000000",
         "text_color": "#000000",
-        "button_label_color": "#4B4949",
+        "button_label_color": "#4b4949",
         "button_background_color": "rgba(0,0,0,0)",
         "button_radius": 0,
         "text_background_color": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
         "text_background_border_radius": 8,
         "background_color": "linear-gradient(310deg, rgba(17, 189, 251, 1) 15%, rgba(33, 249, 150, 1) 85%)",
-        "animation": "fade-in",
+        "animation": "none",
         "mobile_display": "scroll",
         "base_width": 85,
         "max_width": "",
