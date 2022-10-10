@@ -26,13 +26,82 @@
         "base_width": 70,
         "max_width": "",
         "inner_padding": 40,
-        "outer_margin": 50,
+        "outer_margin": 10,
         "custom_css": "",
         "mobile_custom_css": "",
         "override_theme_font": false,
         "heading_font": "serif",
         "main_font": "sans-serif",
         "signature_font": "sagrantino_n4"
+      }
+    },
+    "9b96e94e-8c32-41d6-ae88-0676a8c442a7": {
+      "type": "design_pack_-_columns_-_simple",
+      "blocks": {
+        "template--14375486193713__9b96e94e-8c32-41d6-ae88-0676a8c442a7-1665430368b280d662-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/model-with-leather-jacket-over-shoulders.jpg",
+            "title": "Heading",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
+            "button_label": "Learn more",
+            "button_link": "",
+            "external_link": false
+          }
+        },
+        "template--14375486193713__9b96e94e-8c32-41d6-ae88-0676a8c442a7-1665430368b280d662-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-poses-in-dark-room.jpg",
+            "title": "Heading",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
+            "button_label": "Learn more",
+            "button_link": "",
+            "external_link": false
+          }
+        },
+        "template--14375486193713__9b96e94e-8c32-41d6-ae88-0676a8c442a7-1665430368b280d662-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fashion-model-in-fur.jpg",
+            "title": "Heading",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh enim, ornare at consequat sed, placerat quis libero. Curabitur id nulla ut nunc aliquam sodales.<\/p>",
+            "button_label": "Learn more",
+            "button_link": "",
+            "external_link": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14375486193713__9b96e94e-8c32-41d6-ae88-0676a8c442a7-1665430368b280d662-0",
+        "template--14375486193713__9b96e94e-8c32-41d6-ae88-0676a8c442a7-1665430368b280d662-1",
+        "template--14375486193713__9b96e94e-8c32-41d6-ae88-0676a8c442a7-1665430368b280d662-2"
+      ],
+      "settings": {
+        "per_row": 3,
+        "image_crop": "circle",
+        "image_size": 60,
+        "text_size": 100,
+        "text_alignment": "center",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "button_label_color": "#4B4949",
+        "button_background_color": "rgba(0,0,0,0)",
+        "button_radius": 0,
+        "text_background_color": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "text_background_border_radius": 8,
+        "background_color": "linear-gradient(310deg, rgba(17, 189, 251, 1) 15%, rgba(33, 249, 150, 1) 85%)",
+        "animation": "fade-in",
+        "mobile_display": "scroll",
+        "base_width": 85,
+        "max_width": "",
+        "inner_padding": 60,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
       }
     },
     "1663958714fbabd6e4": {
@@ -571,12 +640,12 @@
             "button_radius": 0,
             "button_label_primary": "Learn more",
             "link_primary": "",
-            "button_label_color_primary": "#FFFFFF",
+            "button_label_color_primary": "#ffffff",
             "button_background_color_primary": "rgba(0,0,0,0)",
             "button_label_secondary": "",
             "link_secondary": "",
             "button_label_color_secondary": "#283144",
-            "button_background_color_secondary": "#FAFAFA"
+            "button_background_color_secondary": "#fafafa"
           }
         }
       },
@@ -591,7 +660,7 @@
         "text_alignment": "center",
         "text_position": "center bottom",
         "text_width": 600,
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "text_background_color": "",
         "background_color": "linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 100%)",
         "animation": "fade-in-down",
@@ -609,6 +678,7 @@
   },
   "order": [
     "1663416672524f55c9",
+    "9b96e94e-8c32-41d6-ae88-0676a8c442a7",
     "1663958714fbabd6e4",
     "1664115392a73c44e8",
     "image-with-text",
